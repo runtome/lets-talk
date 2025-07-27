@@ -1,6 +1,6 @@
 import { Image } from 'expo-image';
 import React, { useEffect, useRef, useState } from 'react';
-import { Button, Platform, StyleSheet, TextInput, View } from 'react-native';
+import { Button, StyleSheet, TextInput, View } from 'react-native';
 
 import { HelloWave } from '@/components/HelloWave';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
@@ -51,7 +51,7 @@ export default function HomeScreen() {
 
       {/* Show current cutoff time */}
       <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Call Cutoff Time: {cutoffTime} s</ThemedText>
+        <ThemedText type="title">เวลาในการตัดสาย: {cutoffTime} s</ThemedText>
         <HelloWave />
       </ThemedView>
 
@@ -63,31 +63,23 @@ export default function HomeScreen() {
           value={inputValue}
           onChangeText={setInputValue}
         />
-        <Button title="OK" onPress={handleUpdate} />
+        <Button title="ตั้งเวลาวางสาย" onPress={handleUpdate} />
       </View>
 
       {/* Countdown Display */}
       <View style={styles.timerContainer}>
         <ThemedText type="subtitle">
-          {countdown > 0 ? `Call will hang up in ${countdown} s` : 'No active call'}
+          {countdown > 0 ? `ระบบจะวางสายในอีก ${countdown} s` : 'ไม่มีการโทรเข้ามา'}
         </ThemedText>
         <Button title="Simulate Incoming Call" onPress={startCountdown} />
       </View>
 
       {/* Original content */}
       <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 1: Try it</ThemedText>
+        <ThemedText type="subtitle">Prototype 1: ทดสอบความเป็นไปได้</ThemedText>
         <ThemedText>
-          Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
-          Press{' '}
-          <ThemedText type="defaultSemiBold">
-            {Platform.select({
-              ios: 'cmd + d',
-              android: 'cmd + m',
-              web: 'F12',
-            })}
-          </ThemedText>{' '}
-          to open developer tools.
+          สวัสดีครับ! นี่คือแอปพลิเคชันตัวอย่างที่ใช้ React Native และ Expo เพื่อแสดงการทำงานของการตัดสายโทรศัพท์อัตโนมัติ
+          ในกรณีที่มีการโทรเข้ามาเกินเวลาที่กำหนด
         </ThemedText>
       </ThemedView>
     </ParallaxScrollView>
